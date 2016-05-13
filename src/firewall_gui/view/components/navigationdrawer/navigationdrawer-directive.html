@@ -1,0 +1,11 @@
+<md-sidenav class="md-sidenav-left"
+            md-component-id="navigationdrawer"
+            layout="column">
+    <md-list>
+        <md-subheader class="md-no-sticky">Tables</md-subheader>
+        <md-list-item ng-repeat="table in $ctrl.tables"
+                      ng-click="$ctrl.setTable(table.name)">
+            <span>{{ table.name }}</span>
+        </md-list-item>
+    </md-list>
+</md-sidenav>

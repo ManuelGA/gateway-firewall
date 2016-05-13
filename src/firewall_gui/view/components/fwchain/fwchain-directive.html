@@ -1,0 +1,40 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <md-button class="md-icon-button"
+                    aria-label="Menu"
+                    ng-click="$ctrl.toggleSideNav()">
+            <md-icon>menu</md-icon>
+        </md-button>
+        <span>{{ $ctrl.table.name }}</span>
+        <span flex></span>
+    </div>
+</md-toolbar>
+<md-content>
+    <md-list>
+        <md-subheader class="md-no-sticky" ng-click="$ctrl.check()">Built-in</md-subheader>
+        <md-list-item class="md-3-line"
+                    ng-repeat="chain in $ctrl.table.chains | filter:$ctrl.builtInChain"
+                    ng-click="$ctrl.view({chain:chain})">
+            <div class="md-list-item-text">
+                <h3>Chain {{ chain.name }}</h3>
+                <h4>{{ chain.policy }}</h4>
+                <p>
+                    <span>{{ chain.packets }} packets</span>,
+                    <span>{{ chain.bytes }} bytes</span>
+                </p>
+            </div>
+        </md-list-item>
+        <md-subheader class="md-no-sticky">User-defined</md-subheader>
+        <md-list-item class="md-2-line"
+                    ng-repeat="chain in $ctrl.table.chains | filter:$ctrl.userChain"
+                    ng-click="$ctrl.view({chain:chain})">
+            <div class="md-list-item-text">
+                <h3>Chain {{ chain.name }}</h3>
+                <p>
+                    <span>{{ chain.packets }} packets</span>,
+                    <span>{{ chain.bytes }} bytes</span>
+                </p>
+            </div>
+        </md-list-item>
+    </md-list>
+</md-content>

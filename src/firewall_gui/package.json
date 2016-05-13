@@ -1,0 +1,12 @@
+{
+  "main": "app/main.js",
+  "scripts": {
+    "postinstall": "node_modules/bower/bin/bower install",
+    "start": "node_modules/electron-prebuilt/dist/electron .",
+    "default": "./assets/firewall.sh"
+  },
+  "dependencies": {
+    "bower": "^1.7.7",
+    "electron-prebuilt": "^0.36.7"
+  }
+}

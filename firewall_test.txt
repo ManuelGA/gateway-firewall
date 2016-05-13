@@ -1,0 +1,139 @@
+INITIATING FIREWALL TEST
+
+NMAP test
+
+
+Starting Nmap 7.00 ( https://nmap.org ) at 2016-02-04 15:03 PST
+Initiating ARP Ping Scan at 15:03
+Scanning 192.168.0.2 [1 port]
+Completed ARP Ping Scan at 15:03, 0.01s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 15:03
+Completed Parallel DNS resolution of 1 host. at 15:03, 6.50s elapsed
+Initiating SYN Stealth Scan at 15:03
+Scanning 192.168.0.2 [1000 ports]
+Discovered open port 80/tcp on 192.168.0.2
+Discovered open port 22/tcp on 192.168.0.2
+Completed SYN Stealth Scan at 15:03, 4.54s elapsed (1000 total ports)
+Nmap scan report for 192.168.0.2
+Host is up (0.00040s latency).
+Not shown: 998 filtered ports
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+MAC Address: 98:90:96:DC:F2:FE (Dell)
+
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 11.11 seconds
+           Raw packets sent: 2002 (88.072KB) | Rcvd: 6 (248B)
+
+
+HIGH PORT TESTING
+
+ALL PACKETS SHOULD BE DROPPED
+
+HPING 192.168.0.2 (eno1 192.168.0.2): S set, 40 headers + 0 data bytes
+
+--- 192.168.0.2 hping statistic ---
+4 packets transmitted, 0 packets received, 100% packet loss
+round-trip min/avg/max = 0.0/0.0/0.0 ms
+HPING 192.168.0.2 (eno1 192.168.0.2): S set, 40 headers + 0 data bytes
+
+--- 192.168.0.2 hping statistic ---
+4 packets transmitted, 0 packets received, 100% packet loss
+round-trip min/avg/max = 0.0/0.0/0.0 ms
+HPING 192.168.0.2 (eno1 192.168.0.2): S set, 40 headers + 0 data bytes
+
+--- 192.168.0.2 hping statistic ---
+8 packets transmitted, 0 packets received, 100% packet loss
+round-trip min/avg/max = 0.0/0.0/0.0 ms
+
+RESERVED PORT TESTING
+
+ALL PACKETS SHOULD BE DROPPED
+
+HPING 192.168.0.2 (eno1 192.168.0.2): NO FLAGS are set, 40 headers + 0 data bytes
+
+--- 192.168.0.2 hping statistic ---
+3 packets transmitted, 0 packets received, 100% packet loss
+round-trip min/avg/max = 0.0/0.0/0.0 ms
+HPING 192.168.0.2 (eno1 192.168.0.2): S set, 40 headers + 0 data bytes
+
+--- 192.168.0.2 hping statistic ---
+4 packets transmitted, 0 packets received, 100% packet loss
+round-trip min/avg/max = 0.0/0.0/0.0 ms
+HPING 192.168.0.2 (eno1 192.168.0.2): S set, 40 headers + 0 data bytes
+
+--- 192.168.0.2 hping statistic ---
+4 packets transmitted, 0 packets received, 100% packet loss
+round-trip min/avg/max = 0.0/0.0/0.0 ms
+
+TCP PORTS TEST
+
+ALL PACKETS SHOULD ARRIVE SUCCESFULLY
+
+HPING 192.168.0.2 (eno1 192.168.0.2): S set, 40 headers + 0 data bytes
+len=46 ip=192.168.0.2 ttl=63 DF id=0 sport=22 flags=SA seq=0 win=29200 rtt=0.8 ms
+DUP! len=46 ip=192.168.0.2 ttl=63 DF id=0 sport=22 flags=SA seq=0 win=29200 rtt=1001.0 ms
+DUP! len=46 ip=192.168.0.2 ttl=63 DF id=0 sport=22 flags=SA seq=0 win=29200 rtt=2001.1 ms
+DUP! len=46 ip=192.168.0.2 ttl=63 DF id=0 sport=22 flags=SA seq=0 win=29200 rtt=3001.2 ms
+
+--- 192.168.0.2 hping statistic ---
+4 packets transmitted, 4 packets received, 0% packet loss
+round-trip min/avg/max = 0.8/1501.1/3001.2 ms
+HPING 192.168.0.2 (eno1 192.168.0.2): S set, 40 headers + 0 data bytes
+len=46 ip=192.168.0.2 ttl=63 DF id=0 sport=80 flags=SA seq=0 win=29200 rtt=0.6 ms
+DUP! len=46 ip=192.168.0.2 ttl=63 DF id=0 sport=80 flags=SA seq=0 win=29200 rtt=1001.0 ms
+DUP! len=46 ip=192.168.0.2 ttl=63 DF id=0 sport=80 flags=SA seq=0 win=29200 rtt=2001.1 ms
+DUP! len=46 ip=192.168.0.2 ttl=63 DF id=0 sport=80 flags=SA seq=0 win=29200 rtt=3001.3 ms
+
+--- 192.168.0.2 hping statistic ---
+4 packets transmitted, 4 packets received, 0% packet loss
+round-trip min/avg/max = 0.6/1501.0/3001.3 ms
+HPING 192.168.0.2 (eno1 192.168.0.2): S set, 40 headers + 0 data bytes
+
+
+UDP PORTS TEST
+
+ALL PACKETS SHOULD BE DROPPED
+
+HPING 192.168.0.2 (eno1 192.168.0.2): udp mode set, 28 headers + 0 data bytes
+
+--- 192.168.0.2 hping statistic ---
+4 packets transmitted, 0 packets received, 100% packet loss
+round-trip min/avg/max = 0.0/0.0/0.0 ms
+
+ICMP TYPES TEST
+
+ALL PACKETS SHOULD ARRIVE SUCCESFULLY
+
+HPING 192.168.0.2 (eno1 192.168.0.2): icmp mode set, 28 headers + 0 data bytes
+len=46 ip=192.168.0.2 ttl=63 id=63217 icmp_seq=0 rtt=0.7 ms
+len=46 ip=192.168.0.2 ttl=63 id=63787 icmp_seq=1 rtt=0.7 ms
+len=46 ip=192.168.0.2 ttl=63 id=64145 icmp_seq=2 rtt=0.7 ms
+len=46 ip=192.168.0.2 ttl=63 id=64937 icmp_seq=3 rtt=0.7 ms
+
+--- 192.168.0.2 hping statistic ---
+4 packets transmitted, 4 packets received, 0% packet loss
+round-trip min/avg/max = 0.7/0.7/0.7 ms
+
+TELNET PORT TESTING
+
+ALL PACKETS SHOULD BE DROPPED
+
+HPING 192.168.0.2 (eno1 192.168.0.2): NO FLAGS are set, 40 headers + 0 data bytes
+
+--- 192.168.0.2 hping statistic ---
+4 packets transmitted, 0 packets received, 100% packet loss
+round-trip min/avg/max = 0.0/0.0/0.0 ms
+
+SPOOFTESTING
+
+ALL PACKETS SHOULD BE DROPPED
+
+HPING 192.168.0.2 (eno1 192.168.0.2): NO FLAGS are set, 40 headers + 0 data bytes
+
+--- 192.168.0.2 hping statistic ---
+4 packets transmitted, 0 packets received, 100% packet loss
+round-trip min/avg/max = 0.0/0.0/0.0 ms
+
+TEST COMPLETE

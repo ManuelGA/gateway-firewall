@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="fwfe">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+    <title>Firewall Configurator</title>
+
+    <link rel="stylesheet" href="../vendor/angular/angular-csp.css">
+    <link rel="stylesheet" href="../vendor/material-icons.css">
+    <link rel="stylesheet" href="../vendor/angular-material/angular-material.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body layout layout-align="center center" layout-wrap ng-cloak>
+
+    <!-- Container -->
+    <div class="md-whiteframe-2dp" style="height:100%;" flex="100" flex-gt-xs="75" flex-gt-md="50">
+        <fwtable></fwtable>
+    </div>
+
+    <navigationdrawer></navigationdrawer>
+
+    <script src="../vendor/angular/angular.js"></script>
+    <script src="../vendor/angular-animate/angular-animate.js"></script>
+    <script src="../vendor/angular-aria/angular-aria.js"></script>
+    <script src="../vendor/angular-material/angular-material.js"></script>
+    <script src="fwcore/fwcore.js"></script>
+    <script src="components/navigationdrawer/navigationdrawer.js"></script>
+    <script src="components/navigationdrawer/navigationdrawer-service.js"></script>
+    <script src="components/fwrules/fwrules.js"></script>
+    <script src="components/fwchain/fwchain.js"></script>
+    <script src="components/fwtable/fwtable.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

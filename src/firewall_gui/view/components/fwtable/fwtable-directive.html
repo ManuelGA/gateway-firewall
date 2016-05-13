@@ -1,0 +1,20 @@
+<md-content ng-switch on="$ctrl.viewMode" layout-fill>
+    <fwchain ng-switch-when="chain" table="$ctrl.table" view="$ctrl.viewRules(chain)"></fwchain>
+    <fwrules ng-switch-when="rules" chain="$ctrl.selectedChain" view="$ctrl.viewChains()"></fwrules>
+    <div ng-switch-default layout="column" layout-align="center center" layout-fill>
+        <form ng-submit="$ctrl.importTables()">
+            <div layout="column">
+                <md-input-container>
+                    <label>iptables-save</label>
+                    <input ng-model="$ctrl.form.iptSave" required>
+                </md-input-container>
+                <md-input-container >
+                    <label>iptables-restore</label>
+                    <input ng-model="$ctrl.form.iptRestore" required>
+                </md-input-container>
+            </div>
+            <md-button type="submit" class="md-primary md-raised">Import Tables</md-button>
+            <p class="md-caption">This application requires root privileges.</p>
+        </form>
+    </div>
+</md-content>

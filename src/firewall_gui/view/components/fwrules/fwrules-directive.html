@@ -1,0 +1,83 @@
+<md-toolbar md-scroll-shrink>
+    <div class="md-toolbar-tools">
+        <md-button class="md-icon-button"
+                    aria-label="Menu"
+                    ng-click="$ctrl.view()">
+            <md-icon>arrow_back</md-icon>
+        </md-button>
+        <span>{{ $ctrl.chain.name }}</span>
+        <span flex></span>
+        <md-button class="md-icon-button"
+                   aria-label="Save Chains"
+                   ng-click="$ctrl.save()">
+            <md-icon>save</md-icon>
+        </md-button>
+    </div>
+</md-toolbar>
+<md-content class="md-padding">
+    <md-input-container class="md-block" ng-if="$ctrl.chain.policy != null">
+        <label>Policy</label>
+        <input ng-model="$ctrl.chain.policy">
+    </md-input-container>
+    <form style="padding-bottom:48px;" name="$ctrl.form" ng-submit="$ctrl.newRule()"
+        ng-if="$ctrl.chain.name === 'FORWARD'">
+        <h3 class="md-body-1">New Rule</h3>
+        <p class="md-caption"><b>Note</b>: Rules are appended to the top of the rules list.</p>
+        <div layout="column">
+            <div layout>
+                <md-input-container flex>
+                    <label>Direction</label>
+                    <md-select ng-model="$ctrl.form.direction" required>
+                        <md-option value="in">Inbound</md-option>
+                        <md-option value="out">Outbound</md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Protocol</label>
+                    <md-select ng-model="$ctrl.form.protocol" required>
+                        <md-option value="tcp">TCP</md-option>
+                        <md-option value="udp">UDP</md-option>
+                        <md-option value="icmp">ICMP</md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container flex ng-if="$ctrl.form.protocol != 'icmp'">
+                    <label>Port No.</label>
+                    <input type="number" ng-model="$ctrl.form.port" min="0" max="65535" required>
+                </md-input-container>
+                <md-input-container flex ng-if="$ctrl.form.protocol == 'icmp'">
+                    <label>Type No.</label>
+                    <input type="number" ng-model="$ctrl.form.port" min="0" max="255" required>
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Permission</label>
+                    <md-select ng-model="$ctrl.form.permission" required>
+                        <md-option value="ACCEPT">Allow</md-option>
+                        <md-option value="DROP">Deny</md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+            <div layout>
+                <md-input-container flex>
+                    <label>IP Address</label>
+                    <input type="text" ng-model="$ctrl.form.ipaddress" ng-required="$ctrl.chain.name === 'FORWARD'">
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Network Interface</label>
+                    <input type="text" ng-model="$ctrl.form.networkinterface" ng-required="$ctrl.chain.name === 'FORWARD'">
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Gateway Interface</label>
+                    <input type="text" ng-model="$ctrl.form.gatewayinterface" ng-required="$ctrl.chain.name === 'FORWARD'">
+                </md-input-container>
+            </div>
+        </div>
+        <div>
+            <md-button class="md-raised" type="reset">Clear</md-button>
+            <md-button class="md-primary md-raised" type="submit">Create</md-button>
+        </div>
+    </form>
+    <md-input-container class="md-block">
+        <label>Rules</label>
+        <textarea ng-model="$ctrl.chain.rules"></textarea>
+    </md-input-container>
+</md-content>
